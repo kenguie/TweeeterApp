@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tweeter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header>
+		<nav>
+		<% if current_user %>
+			<%= "Hello #{current_user.fname}" %> | 
+			<%= link_to "logout", logout_path, method: :delete %> |
+			<%= link_to "Compose a chirp!", new_chirp_path %>
+		<% else %>
+			<%= link_to "Sign up", new_user_path %> |
+			<%= link_to "Sign in", new_session_path %>
+		<% end %>
+		</nav>
+	</header>
+<%= flash[:notice] if flash[:notice] %>
+<%= flash[:alert] if flash[:alert] %>
+<%= yield %>
+
+</body>
+</html>
