@@ -1,7 +1,7 @@
-== README
+README
 
 # Tweeeter
-----
+=====
 ### Description
 Simple Twitter Clone
 
